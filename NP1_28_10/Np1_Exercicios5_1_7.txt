@@ -1,0 +1,134 @@
+EXERCICIO N°5
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct pessoa
+{
+	string cpf;
+	int idade;
+	string nome;
+	string endereco;
+	
+};
+
+int main(int argc, char** argv)
+{
+	int j = 0;
+	pessoa p[5];
+
+	for(j; j < 5; j++)
+	{  
+		cout << "Qual o seu nome: " << j + 1 << ": ";
+		
+		getline(cin, p[j].nome);
+		
+
+		cout << "Qual o seu endereco: " << j + 1 << ": ";
+		getline(cin, p[j].endereco);
+
+		cout << "Qual o seu cpf: " << j + 1 << ": ";
+		cin >>  p[j].cpf;
+
+		cout << "Qual a sua idade: " << j + 1 << ": ";
+		cin >>  p[j].idade;
+		
+		cin.ignore();
+
+		cout<<"-----"<< endl;
+	}
+	
+	cout << endl;
+	cout << "==DADOS SALVOS===" << endl;
+	cout << endl;
+	
+	for(j = 0; j < 5; j++)
+	{
+		cout << "Qual o seu nome: " << j+1 << ": " << p[j].nome << endl;
+		cout << "Qual o seu endereco " << j+1 << ": " << p[j].endereco << endl;
+		cout << "Qual o seu cpf: " << j+1 << ": " << p[j].cpf << endl;
+		cout << "Qual a sua idade: " << j+1 << ": " << p[j].idade << endl;
+		
+		cout << "----------" << endl;
+	}
+
+	return 0;
+}
+
+
+
+EXERCICIO
+1. Indique verdadeiro ou falso
+
+a) (V) O operador & permite-nos obter o endereço de uma
+variável. Permite também obter o endereço de um ponteiro.
+b) (V) Se x é um inteiro e ptr um ponteiro para inteiros e ambos
+contêm no seu interior o número 100, então x+1 e ptr+1
+apresentarão o número 101.
+c) (F) O operador * nos permite obter o endereço de uma
+variável.
+d) (V) Os ponteiros são variáveis que apontam para endereços
+na memória.
+
+2. Qual o resultado?
+cout << a << b << *ptr;
+R:5 7 5
+
+3. Se fizermos ptr = &b, qual o resultado?
+cout << a << b << *ptr; 
+R:5 7 7
+
+4. Se agora tivermos *ptr = 20, qual o resultado? 
+R:Precisa ser um endereço, não um valor
+
+5. Qual caractere que se coloca na declaração de uma variável
+para indicar que ela é um ponteiro? Onde se coloca este
+caractere?
+R:Asterisco, Antes do nome da variável
+
+6. O que contém uma variável do tipo ponteiro?
+R:Um endereço na memória
+
+7. Faça um programa que crie um vetor de 10 inteiros, coloque
+valores nele e depois imprima todos os seus conteúdos na
+ordem normal e depois inversa. A impressão dos conteúdos
+deverá ser feita usando ponteiro.
+
+#include <iostream>
+
+using namespace std;
+
+// ponteiro de array
+
+int main(int argc, char** argv)
+{
+	int array[10];
+	int i = 0;
+
+	for(i; i < 10; i++)
+	{
+		cout << "Valor " << i + 1 << ": ";
+		cin >> array[i];
+	}
+
+	int *pArray = &array[0];
+
+	cout << "=================" << endl;
+
+	for( i = 0; i < 10; i++)
+	{
+		cout << *pArray << endl;
+		pArray++;
+	}
+
+	cout << "=================" << endl;
+
+	for(int i = 10; i > 0; i--)
+	{
+		pArray--;
+		cout << *pArray << endl;
+	}
+
+	return 0;
+}
